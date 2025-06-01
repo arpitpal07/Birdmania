@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIRDMAINA</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<script src="script.js">
+</script>
+<body>
+    <main>
+        <div class="navbar">
+        <div class="site-navbar">
+            <img src="angry-birds.png" alt="angry-birds logo" class="logo">
+            <span class="site-title">BIRDMANIA</span>
+        </div>
+        </div>
+            <div>
+                
+                <h1>About:<br></h1>
+                <p>This is the website which deals with the different kinds of birds,their habitat and many more things.Welcome to our bird information hub — your go-to destination for everything about birds! Whether you're a curious beginner or a seasoned birdwatcher, our website offers a wealth of knowledge on bird species, their behaviors, habitats, and migration patterns. Explore beautiful photos, bird calls, and fun facts, all designed to help you discover and appreciate the amazing world of birds. Start your journey into birdwatching, learn how to identify different species, and stay updated with the latest birding tips and guides — all in one place!
+</p>
+<button id="Types">TYPES</button>
+<div id="imagecontainer" style="display:none;">
+     <img src="nest.jpg" alt="Nest" class="right-image">
+</div>
+<div id="myContent" style="display:none;">
+<ul>
+    <li><a href="home2.html">Songbirds</a></li>
+    <li><a href="home2.html">Birds of prey</a></li>
+    <li><a href="home2.html">Water Birds</a></li>
+    <li><a href="home2.html">Wading Birds</a></li>
+    <li><a href="home2.html">Flightless Birds</a></li>
+    <li><a href="home2.html">Game Birds</a></li>
+    <li><a href="home2.html">Parrots</a></li>
+    <li><a href="home2.html">Shorebirds</a></li>
+    <li><a href="home2.html">Tropical Birds</a></li>
+    <li><a href="home2.html">Piegons and Doves</a></li>
+</ul>
+</div>
+<script>
+document.getElementById('Types').addEventListener('click', function() {
+    const content = document.getElementById('myContent');
+    if (content.style.display === 'none') {
+      content.style.display = 'block';
+      this.textContent = 'Hide Content';
+    } else {
+      content.style.display = 'none';
+      this.textContent = 'Show Content';
+    }
+  });</script>
+            </div>
+            <div class="content">
+            
+        </div>
+    </main>
+    <footer>
+  <p>© 2025 Birdmainia. All rights reserved.</p>
+</footer>
+
+    
+</body>
+</html>
