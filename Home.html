@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birdmania</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <main>
+    <div class="navbar">
+      <div class="site-navbar">
+        <img src="angry-birds.png" alt="angry-birds logo" class="logo" />
+        <span class="site-title">BIRDMANIA</span>
+      </div>
+    </div>
+
+    <div>
+      <h1>About:<br></h1>
+      <p>This is the website which deals with the different kinds of birds,their habitat and many more things.Welcome to our bird information hub — your go-to destination for everything about birds! Whether you're a curious beginner or a seasoned birdwatcher, our website offers a wealth of knowledge on bird species, their behaviors, habitats, and migration patterns. Explore beautiful photos, bird calls, and fun facts, all designed to help you discover and appreciate the amazing world of birds. Start your journey into birdwatching, learn how to identify different species, and stay updated with the latest birding tips and guides — all in one place!</p>
+      <button id="Types">TYPES</button>
+      <div id="imagecontainer" style="display:none;">
+        <img src="nest.jpg" alt="Nest" class="right-image">
+      </div>
+      <div id="myContent" style="display:none;">
+        <ul>
+          <li><a href="home2.html#softbirds">Softbirds</a></li>
+  <li><a href="home2.html#birds-of-prey">Birds of Prey</a></li>
+  <li><a href="home2.html#water-birds">Water Birds</a></li>
+  <li><a href="home2.html#wading-birds">Wading Birds</a></li>
+  <li><a href="home2.html#flightless-birds">Flightless Birds</a></li>
+  <li><a href="home2.html#game-birds">Game Birds</a></li>
+  <li><a href="home2.html#parrots">Parrots</a></li>
+  <li><a href="home2.html#shorebirds">Shorebirds</a></li>
+  <li><a href="home2.html#tropical-birds">Tropical Birds</a></li>
+  <li><a href="home2.html#pigeons-doves">Pigeons and Doves</a></li>
+        </ul>
+      </div>
+    </div>
+    <section style="text-align:center; margin: 50px 0;">
+      <h2>Subscribe to Birdmania News</h2>
+      <p>Get bird facts and updates straight to your inbox!</p>
+      <form id="subscribeForm">
+        <input type="email" id="emailInput" placeholder="Enter your email" required style="padding:10px; width:300px; border:1px solid #ccc; border-radius:5px;" />
+        <button type="submit" style="padding:10px 20px; background-color:#4CAF50; color:white; border:none; border-radius:10px;">Enroll</button>
+      </form>
+      <p id="statusMessage" style="margin-top: 10px; font-weight: bold;"></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Birdmania. All rights reserved.</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('Types').addEventListener('click', function () {
+      const content = document.getElementById('myContent');
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        this.textContent = 'Hide Content';
+      } else {
+        content.style.display = 'none';
+        this.textContent = 'Show Content';
+      }
+    });
+    document.getElementById('subscribeForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const statusMessage = document.getElementById('statusMessage');
+
+      try {
+        const response = await fetch('http://localhost:5000/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          statusMessage.style.color = 'green';
+          statusMessage.textContent = result.message;
+        } else {
+          statusMessage.style.color = 'red';
+          statusMessage.textContent = 'Error: ' + result.message;
+        }
+      } catch (error) {
+        statusMessage.style.color = 'red';
+        statusMessage.textContent = 'Network error. Please try again.';
+        console.error(error);
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(
+          null,
+          null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    })(window.location);
+  </script>
+</body>
+</html>
